@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class FlockManager : MonoBehaviour
 {
+    //variaveis
     public GameObject fishPrefab;
     public int numFish = 20;
     public GameObject[] allFish;
@@ -17,9 +18,13 @@ public class FlockManager : MonoBehaviour
     public float neighbourDistance;
     [Range(0.0f, 5.0f)]
     public float rotationSpeed;
+
     void Start()
     {
+        //dizendo que o numero de peixes dentro do aray é igual o da variavel
         allFish = new GameObject[numFish];
+
+        //percorrendo a quantidade de peixes e instanciando eles
         for (int i = 0; i < numFish; i++)
         {
             Vector3 pos = this.transform.position + new Vector3(Random.Range(-swinLimits.x,
@@ -36,6 +41,8 @@ public class FlockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //controlando os peixes
         goalPos = this.transform.position;
         if (Random.Range(0, 100) < 10)
             goalPos = this.transform.position + new Vector3(Random.Range(-swinLimits.x,
